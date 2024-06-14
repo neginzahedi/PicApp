@@ -7,65 +7,82 @@
 
 import SwiftUI
 
+/// The main view displaying a list of photos fetched from the view model.
 struct ContentView: View {
     
     @StateObject private var viewModel = PhotosListViewModel()
     
     var body: some View {
         NavigationView {
-            ScrollView{
-                LazyVStack{
-                    ForEach(viewModel.photos) { image in
-                        ImageRowView(image: image)
-                            .padding(.horizontal,20)
-                            .padding(.vertical,10)
-                    }
+            PhotosListView(viewModel: viewModel)
+                .navigationTitle("PicApp")
+                .onAppear {
+                    viewModel.fetchImages()
                 }
-            }
-            
-            .navigationTitle("Pic App")
-            .onAppear {
-                viewModel.fetchImages()
-            }
-            .refreshable {
-                viewModel.fetchImages()
+                .refreshable {
+                    viewModel.fetchImages()
+                }
+        }
+    }
+}
+
+/// A view displaying a scrollable list of photos.
+struct PhotosListView: View {
+    
+    @ObservedObject var viewModel: PhotosListViewModel
+    
+    var body: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(viewModel.photos) { photo in
+                    PhotoRowView(photo: photo)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
+                }
             }
         }
     }
 }
 
-struct ImageRowView: View {
-    var image: Photo
+/// A view representing each row in the photos list.
+struct PhotoRowView: View {
+    var photo: Photo
     
     var body: some View {
         VStack{
-            ZStack{
-                AsyncImage(url: image.urls.small) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(height: 200)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-            }
-            HStack{
-                VStack(alignment: .leading){
-                    Text(image.alt_description.capitalizedEachWord())
-                        .font(.subheadline)
-                    Spacer()
-                    Text(image.user.name)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    
-                    
-                }
-                Spacer()
-            }
-            .padding(.vertical,10)
+            asyncImageView
+            photoTitlesView
+                .padding(.vertical,10)
         }
         .background(.white)
+    }
+    
+    private var asyncImageView: some View {
+        ZStack {
+            AsyncImage(url: photo.urls.small) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(height: 200)
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+        }
+    }
+    
+    private var photoTitlesView: some View{
+        HStack {
+            VStack(alignment: .leading) {
+                Text(photo.alt_description.capitalizedEachWord())
+                    .font(.subheadline)
+                
+                Text(photo.user.name)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer()
+        }
     }
 }
 
