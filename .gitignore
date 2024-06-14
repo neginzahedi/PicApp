@@ -1,0 +1,106 @@
+# Xcode
+#
+# gitignore contributors: remember to update the Xcode.gitignore template as well
+
+## User settings
+xcuserdata/
+
+## Compatibility with Xcode 8 and earlier (ignores not the whole directory)
+!default.xctoolchain
+*.pbxuser
+!default.pbxuser
+!user.xcuserdatad
+!xcuserdata
+
+## Compatibility with Xcode 7 and earlier (ignores not the whole directory)
+!xcshareddata
+
+## Compatibility with Xcode 3 and earlier (ignores not the whole directory)
+!username.pbxuser
+!username.mode1v3
+!username.perspectivev3
+!default.perspectivev3
+
+## Build products
+build/
+DerivedData/
+
+## Various settings
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+## Other
+*.moved-aside
+*.xcworkspace
+!default.xcworkspace
+*.xccheckout
+*.xcscmblueprint
+
+## Object files
+*.o
+*.LinkFileList
+
+## External build system
+.xcconfig
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+## Swift Package Manager
+#
+# Add this line if you have Package.resolved and want to ignore it
+# Package.resolved
+.build/
+# Ignore checked in Packages folder. Without this, the build system
+# will resolve version conflicts automatically at build time.
+# /Packages/
+# Ignore Package.pins file. Without this, any new Package.resolved
+# will be ignored.
+Package.pins
+# Package.resolved
+.swiftpm/xcode/package.resolved
+
+## CocoaPods
+Pods/
+Podfile.lock
+# Add this line if you have Pods/ and want to ignore it
+# /Pods/
+# Add this line if you have Podfile.lock and want to ignore it
+# Podfile.lock
+
+## Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+## Accio dependency management
+Dependencies/
+.accio/
+
+## fastlane
+#
+# It is recommended to not store the screenshots in the git repo.
+# Instead, use fastlane to re-generate the screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+## Code Injection
+# Avoid re-adding the output from injected source during development
+# https://github.com/johnno1962/injectionforxcode
+**/iOSInjectionProject/
+
+# Config file to store sensitive data
+Config.swift
+
+# macOS specific build and runtime files
+#
+# Add this line if you have build products in your project that are created by macOS
+# MacFrameworks/
+
+# macOS .DS_Store files
+.DS_Store
