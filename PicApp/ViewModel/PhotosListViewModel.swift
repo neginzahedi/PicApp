@@ -25,7 +25,11 @@ class PhotosListViewModel: ObservableObject {
     func fetchImages() {
         imageService.fetchPhotos()
             .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] photos in
-                self?.photos = photos
+                self?.photos = photos.map { photo in
+                    var photo = photo
+                    photo.isFavourite = FavoritePhotosPersistenceManager.shared.isFavorite(id: photo.id)
+                    return photo
+                }
             })
             .store(in: &cancellables)
     }

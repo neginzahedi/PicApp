@@ -30,6 +30,14 @@ struct PhotoDetailsView: View {
             .padding()
             
             Spacer()
+            Button(action: {
+                viewModel.toggleFavourite()
+            }) {
+                HStack {
+                    Image(systemName: viewModel.photo.isFavourite ?? false ? "heart.fill" : "heart")
+                    Text(viewModel.photo.isFavourite ?? false ? "Unfavourite" : "Favourite")
+                }
+            }
         }
     }
 }

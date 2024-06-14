@@ -13,5 +13,11 @@ class PhotoDetailsViewModel: ObservableObject {
     
     init(photo: Photo) {
         self.photo = photo
+        self.photo.isFavourite = FavoritePhotosPersistenceManager.shared.isFavorite(id: photo.id)
+    }
+    
+    func toggleFavourite() {
+        photo.isFavourite?.toggle()
+        FavoritePhotosPersistenceManager.shared.toggleFavorite(id: photo.id)
     }
 }

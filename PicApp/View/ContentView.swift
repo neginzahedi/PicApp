@@ -58,6 +58,10 @@ struct PhotoRowView: View {
             asyncImageView
             photoTitlesView
                 .padding(.vertical,10)
+            if photo.isFavourite ?? false {
+                Image(systemName: "heart.fill")
+                    .foregroundColor(.red)
+            }
         }
     }
     
