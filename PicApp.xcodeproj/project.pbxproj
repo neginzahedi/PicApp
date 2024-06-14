@@ -10,6 +10,7 @@
 		0F86EC5D2C1CBD5A00306DD4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F86EC5C2C1CBD5A00306DD4 /* Config.swift */; };
 		0F86EC602C1CBDE400306DD4 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F86EC5F2C1CBDE400306DD4 /* PhotosService.swift */; };
 		0F86EC632C1CC00E00306DD4 /* PhotosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F86EC622C1CC00E00306DD4 /* PhotosListViewModel.swift */; };
+		0F86EC672C1CD90D00306DD4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F86EC662C1CD90D00306DD4 /* String+Extensions.swift */; };
 		0FC4DA5D2C1CAA6B0053A4CD /* PicAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4DA5C2C1CAA6B0053A4CD /* PicAppApp.swift */; };
 		0FC4DA5F2C1CAA6B0053A4CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4DA5E2C1CAA6B0053A4CD /* ContentView.swift */; };
 		0FC4DA612C1CAA6C0053A4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FC4DA602C1CAA6C0053A4CD /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		0F86EC5C2C1CBD5A00306DD4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0F86EC5F2C1CBDE400306DD4 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		0F86EC622C1CC00E00306DD4 /* PhotosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModel.swift; sourceTree = "<group>"; };
+		0F86EC662C1CD90D00306DD4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0FC4DA592C1CAA6B0053A4CD /* PicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC4DA5C2C1CAA6B0053A4CD /* PicAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicAppApp.swift; sourceTree = "<group>"; };
 		0FC4DA5E2C1CAA6B0053A4CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		0F86EC642C1CC43900306DD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0FC4DA5E2C1CAA6B0053A4CD /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F86EC652C1CD8FB00306DD4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0F86EC662C1CD90D00306DD4 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		0FC4DA502C1CAA6B0053A4CD = {
 			isa = PBXGroup;
 			children = (
@@ -118,11 +136,12 @@
 		0FC4DA5B2C1CAA6B0053A4CD /* PicApp */ = {
 			isa = PBXGroup;
 			children = (
+				0F86EC652C1CD8FB00306DD4 /* Extensions */,
+				0F86EC642C1CC43900306DD4 /* View */,
 				0F86EC612C1CBFFB00306DD4 /* ViewModel */,
 				0F86EC5E2C1CBDA800306DD4 /* Services */,
 				0FC4DA8D2C1CB9320053A4CD /* Model */,
 				0FC4DA5C2C1CAA6B0053A4CD /* PicAppApp.swift */,
-				0FC4DA5E2C1CAA6B0053A4CD /* ContentView.swift */,
 				0FC4DA602C1CAA6C0053A4CD /* Assets.xcassets */,
 				0FC4DA622C1CAA6C0053A4CD /* Preview Content */,
 				0F86EC5C2C1CBD5A00306DD4 /* Config.swift */,
@@ -294,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC4DA5F2C1CAA6B0053A4CD /* ContentView.swift in Sources */,
+				0F86EC672C1CD90D00306DD4 /* String+Extensions.swift in Sources */,
 				0F86EC5D2C1CBD5A00306DD4 /* Config.swift in Sources */,
 				0F86EC602C1CBDE400306DD4 /* PhotosService.swift in Sources */,
 				0FC4DA872C1CAF340053A4CD /* PhotoResponse.swift in Sources */,
