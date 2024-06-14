@@ -35,9 +35,14 @@ struct PhotosListView: View {
         ScrollView {
             LazyVStack {
                 ForEach(viewModel.photos) { photo in
-                    PhotoRowView(photo: photo)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 10)
+                    NavigationLink {
+                        PhotoDetailsView(viewModel: PhotoDetailsViewModel(photo: photo))
+                    } label: {
+                        PhotoRowView(photo: photo)
+                            .tint(.primary)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 10)
+                    }
                 }
             }
         }
@@ -54,7 +59,6 @@ struct PhotoRowView: View {
             photoTitlesView
                 .padding(.vertical,10)
         }
-        .background(.white)
     }
     
     private var asyncImageView: some View {
