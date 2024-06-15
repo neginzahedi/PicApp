@@ -67,16 +67,25 @@ struct PhotoRowView: View {
     
     private var asyncImageView: some View {
         ZStack {
-            AsyncImage(url: photo.urls.small) { image in
-                image
+            if let cachedImage = ImageCache.shared.getImage(forKey: photo.id as NSString) {
+                Image(uiImage: cachedImage)
                     .resizable()
                     .scaledToFill()
-            } placeholder: {
-                ProgressView()
+            } else {
+                AsyncImage(url: photo.urls.small) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    ProgressView()
+                }
+                .onAppear {
+                    cacheImage()
+                }
             }
-            .frame(height: 200)
-            .clipShape(RoundedRectangle(cornerRadius: 5))
         }
+        .frame(height: 200)
+        .clipShape(RoundedRectangle(cornerRadius: 5))
     }
     
     private var photoTitlesView: some View{
@@ -91,6 +100,14 @@ struct PhotoRowView: View {
             }
             Spacer()
         }
+    }
+    private func cacheImage() {
+        URLSession.shared.dataTask(with: photo.urls.small) { data, _, error in
+            guard let data = data, error == nil else { return }
+            if let uiImage = UIImage(data: data) {
+                ImageCache.shared.setImage(uiImage, forKey: photo.id as NSString)
+            }
+        }.resume()
     }
 }
 
