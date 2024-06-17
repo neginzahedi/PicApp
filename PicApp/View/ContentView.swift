@@ -45,7 +45,7 @@ struct PhotosListView: View {
                     }
                 }
             }
-        }
+        }.scrollIndicators(.hidden)
     }
 }
 
