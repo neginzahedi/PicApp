@@ -58,10 +58,6 @@ struct PhotoRowView: View {
             asyncImageView
             photoTitlesView
                 .padding(.vertical,10)
-            if photo.isFavourite ?? false {
-                Image(systemName: "heart.fill")
-                    .foregroundColor(.red)
-            }
         }
     }
     
@@ -71,11 +67,13 @@ struct PhotoRowView: View {
                 Image(uiImage: cachedImage)
                     .resizable()
                     .scaledToFill()
+                    .frame(height: 200, alignment: .top)
             } else {
                 AsyncImage(url: photo.urls.small) { image in
                     image
                         .resizable()
                         .scaledToFill()
+                        .frame(height: 200, alignment: .top)
                 } placeholder: {
                     ProgressView()
                 }
@@ -83,9 +81,29 @@ struct PhotoRowView: View {
                     cacheImage()
                 }
             }
+            if photo.isFavourite ?? false {
+                isFavoritedView
+            }
         }
         .frame(height: 200)
         .clipShape(RoundedRectangle(cornerRadius: 5))
+    }
+    
+    private var isFavoritedView: some View {
+        VStack{
+            Spacer()
+            HStack{
+                Spacer()
+                ZStack{
+                    Circle()
+                        .foregroundStyle(.white)
+                        .frame(width: 30)
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(.red)
+                }
+            }
+            .padding(10)
+        }
     }
     
     private var photoTitlesView: some View{
