@@ -19,6 +19,7 @@
 		0F86EC702C1CF64E00306DD4 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F86EC6F2C1CF64E00306DD4 /* ImageCache.swift */; };
 		0FA444352C20976E00B53EDC /* ImageCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA444342C20976E00B53EDC /* ImageCacheTests.swift */; };
 		0FA444372C209B0400B53EDC /* FavoritePhotosPersistenceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA444362C209B0400B53EDC /* FavoritePhotosPersistenceManagerTests.swift */; };
+		0FA444392C20A2DD00B53EDC /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA444382C20A2DD00B53EDC /* StringExtensionTests.swift */; };
 		0FC4DA5D2C1CAA6B0053A4CD /* PicAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4DA5C2C1CAA6B0053A4CD /* PicAppApp.swift */; };
 		0FC4DA5F2C1CAA6B0053A4CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4DA5E2C1CAA6B0053A4CD /* ContentView.swift */; };
 		0FC4DA612C1CAA6C0053A4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FC4DA602C1CAA6C0053A4CD /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		0F86EC6F2C1CF64E00306DD4 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		0FA444342C20976E00B53EDC /* ImageCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheTests.swift; sourceTree = "<group>"; };
 		0FA444362C209B0400B53EDC /* FavoritePhotosPersistenceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePhotosPersistenceManagerTests.swift; sourceTree = "<group>"; };
+		0FA444382C20A2DD00B53EDC /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		0FC4DA592C1CAA6B0053A4CD /* PicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC4DA5C2C1CAA6B0053A4CD /* PicAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicAppApp.swift; sourceTree = "<group>"; };
 		0FC4DA5E2C1CAA6B0053A4CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				0F32B1CB2C1E39C10071F2C4 /* PhotoServiceTests.swift */,
 				0FA444342C20976E00B53EDC /* ImageCacheTests.swift */,
 				0FA444362C209B0400B53EDC /* FavoritePhotosPersistenceManagerTests.swift */,
+				0FA444382C20A2DD00B53EDC /* StringExtensionTests.swift */,
 			);
 			path = PicAppTests;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 			files = (
 				0FA444372C209B0400B53EDC /* FavoritePhotosPersistenceManagerTests.swift in Sources */,
 				0FC4DA6E2C1CAA6C0053A4CD /* PicAppTests.swift in Sources */,
+				0FA444392C20A2DD00B53EDC /* StringExtensionTests.swift in Sources */,
 				0F32B1CC2C1E39C10071F2C4 /* PhotoServiceTests.swift in Sources */,
 				0FA444352C20976E00B53EDC /* ImageCacheTests.swift in Sources */,
 				0F32B1CA2C1E35F20071F2C4 /* MockURLProtocol.swift in Sources */,

@@ -11,9 +11,15 @@ import Combine
 
 class PhotoServiceTests: XCTestCase {
     
+    // MARK: - Properties
+    
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - Test Methods
+    
+    /// Tests the `fetchPhotos` method of `PhotoService` when successful.
     func testFetchPhotosSuccess() {
+        // Given
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [MockURLProtocol.self]
         let session = URLSession(configuration: config)
@@ -32,8 +38,10 @@ class PhotoServiceTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "Fetching photos")
         
+        // When
         service.fetchPhotos()
             .sink(receiveCompletion: { completion in
+                // Then
                 if case .failure(let error) = completion {
                     XCTFail("Expected success but got error: \(error)")
                 }
@@ -46,7 +54,10 @@ class PhotoServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
     
+    /// Tests the `fetchPhotos` method of `PhotoService` when the server responds with an error.
     func testFetchPhotosFailure() {
+        
+        // Given
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [MockURLProtocol.self]
         let session = URLSession(configuration: config)
@@ -59,8 +70,10 @@ class PhotoServiceTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "Fetching photos with failure")
         
+        // When
         service.fetchPhotos()
             .sink(receiveCompletion: { completion in
+                // Then
                 if case .failure(let error) = completion {
                     XCTAssertEqual((error as? URLError)?.code, URLError.badServerResponse)
                     expectation.fulfill()
